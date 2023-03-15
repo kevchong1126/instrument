@@ -1,0 +1,77 @@
+@import 'mixins';
+@import 'animation-container';
+
+
+.links-container{
+    @include container($margin: $margin-xxl);
+    font-family: Monument Grotesk Semi Mono,Monaco,Courier,monospace;
+    display: flex;
+    flex-direction: column;
+    
+    @media screen and (min-width:$media-tablet){
+        width: 95%;            
+    }
+
+    @media screen and (min-width:$media-sm-desktop){
+        flex-direction: row;
+        gap: $margin-main;      
+    }
+
+    .links-card{
+        opacity: 0;
+        transition: all 0.3s ease-in-out;
+        width: 100%;
+        margin: $margin-bg 0;
+        text-decoration: none;
+
+        &.fade-in{
+            opacity: 1;
+        }
+
+        img{
+            width: 100%;
+            
+        }
+
+        .links-text-content{
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+            font-size: $font-size-sm;
+            display: flex;
+            flex-direction: column;
+
+            @media screen and (min-width:$media-tablet){
+                flex-direction: row;
+                width: 90%;
+                align-items: flex-start;
+                width: 100%;
+            }
+
+            @media screen and (min-width:$media-sm-desktop){
+                flex-direction: column;    
+            }
+
+        }
+
+        .links-title{
+            margin: $margin-sm 0;
+            flex: 1;
+            font-size: $font-size-xl;
+
+            @media screen and (min-width:$media-tablet){
+                text-align: start;
+                padding-right: $padding-xl;
+            }
+            
+        }
+        .links-text{
+            margin: $margin-sm 0;
+            flex: 1;
+
+            @media screen and (min-width:$media-tablet){
+                text-align: start;
+            }
+        }
+    }
+}

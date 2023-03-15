@@ -1,0 +1,42 @@
+@import 'mixins';
+
+.video-container{
+    @include container(8rem);
+    
+    height: 60vw;
+    width: 100%;
+    max-height: 95vh;
+
+    .video{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+    }
+
+    .play-button{
+        @include center-absolute;
+        @include center-flex;
+        cursor: pointer;
+        width: 4rem;
+        height: 4rem;
+        @include background-black(0.6);
+        border-radius: 50%;
+        transition: all 0.3s ease-in-out;
+
+        &:hover{
+            width: 4.5rem;
+            height: 4.5rem;
+            @include background-black(0.9)
+        }
+
+        &.hidden{
+            display: none;
+        }
+        
+        svg{
+            margin-left: 0.4rem;
+        }
+    }
+}

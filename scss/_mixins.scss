@@ -1,0 +1,50 @@
+
+@mixin transition-link($property, $value ){
+    position: absolute;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    #{$property} : $value;
+}
+
+@mixin container($margin : 0px, $max-width : 100%, $padding : 0){
+    max-width: 100%;
+    position: relative;
+    padding: $padding;
+    margin: $margin auto 0;
+    max-width: $max-width;
+}
+
+@mixin center-absolute{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+@mixin center-flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin background-black($value){
+    background-color: rgba(0, 0, 0, $value);
+}
+
+@mixin transition-duration($property: all, $duration: 0.3s){
+    transition: $property $duration ease-in-out ;
+}
+
+@mixin btn($bg-color: $bg-secondary, $text-color: $text-secondary, $border-radius: $border-radius-xl){
+    padding: $padding-sm $padding-bg;
+    color: $text-color;
+    background-color: $bg-color;
+    border-radius: $border-radius;
+    text-decoration: none;
+    display: inline-block;
+    @include transition-duration;
+
+    &:hover{
+        opacity: 0.4;
+    }
+}

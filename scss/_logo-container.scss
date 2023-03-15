@@ -1,0 +1,51 @@
+@import 'mixins';
+
+.logo-container{
+    @include container($margin-xl);
+
+    .logo-row{
+        display: flex;
+        justify-content: space-around;
+        width: 99%;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+}
+
+.logo-column{
+    position: relative;
+    height: 14rem;
+    width: 30%;
+    @include center-flex;
+
+    @media screen and (min-width:$media-tablet) {
+        height: 18rem;
+    }
+
+    .logo-img{
+        @include center-absolute;
+        object-fit: cover;
+        object-position: center;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        pointer-events: none;
+        @include transition-duration;
+    }
+
+    .logo-img.active{
+        position: relative;
+        pointer-events: auto;
+        opacity: 1;
+        animation: slide-down 0.5s ease-in-out;
+    }
+}
+
+@keyframes slide-down{
+    0%{
+        top: 42%;
+    }
+    100%{
+        top: 50%;
+    }
+}

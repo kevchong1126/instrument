@@ -1,0 +1,40 @@
+@import 'mixins';
+
+.text-container{
+    @include container($padding: $padding-main, $max-width: 900px, $margin: 15rem);
+
+    .text-content{
+        text-align: center;
+        font-size: $font-size-xl;
+        letter-spacing: -1px;
+        word-spacing: -6px;
+        
+        @media screen and (min-width:$media-tablet){
+            font-size: $font-size-xxl;
+            
+        }
+    }
+}
+
+.text-container-center{
+    @extend .text-container;
+    text-align: center;
+    
+    .text-content{
+        opacity: 0;
+        transition: all 0.3s ease-in-out;
+        margin-bottom: $margin-main;
+        
+        &.fade-in{
+        opacity: 1;
+        }
+    }
+
+    .btn{
+        padding: $padding-sm $padding-bg;
+
+        @media  screen and (min-width:$media-tablet) {
+            padding: $padding-main $padding-bg;    
+        }
+    }
+}

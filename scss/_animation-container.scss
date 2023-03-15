@@ -1,0 +1,76 @@
+@import 'mixins';
+
+.card-container{
+    @include container($margin: 10rem);
+    
+    .card-content{
+        width: 90%;
+        margin: 8rem auto;
+        @include center-flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        @media screen and (min-width: $media-sm-desktop){
+            flex-direction: row;
+        }
+
+        .card-left{
+            width: 100%;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+
+            .card-img{
+                max-width: 100%;
+            }
+        }
+
+        .card-left.fade-in{
+            opacity: 1;
+        }
+
+        .card-text-content{
+            width: 85%;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out 0.3s;
+
+            @media screen and (min-width: $media-tablet){
+                .card-text{
+                    font-size: $font-size-bg;
+                    line-height: 2rem; 
+                }
+                
+                padding: 0 $padding-xl;
+            }
+
+            
+            .card-text{
+                margin: 0 0 $margin-bg;
+                line-height: 1.5rem;
+                
+                @media screen and (min-width: $media-sm-desktop){
+                    font-size: $font-size-xl;
+                    line-height: 2.2rem; 
+                }
+            }
+
+            .card-btn{
+                font-size: $font-size-sm;
+                @media screen and (min-width: $media-tablet){
+                    padding: $padding-main $padding-bg;    
+                }
+            }
+        }
+
+        .card-text-content.fade-in{
+            opacity: 1;
+        }
+    }
+
+    .card-content.flex-reverse{
+        @media screen and (min-width: $media-sm-desktop){
+            flex-direction: row-reverse;
+        }
+    }
+    
+}
+
